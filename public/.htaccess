@@ -1,0 +1,17 @@
+<IfModule mod_rewrite.c>
+    Options -Multiviews
+    RewriteEngine on
+    RewriteBase /
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
+    <FilesMatch "\.css$">
+        SetHandler application/x-httpd-php
+        Header set Content-type "text/css"
+    </FilesMatch>
+
+    <FilesMatch "\.js$">
+        SetHandler application/x-httpd-php
+        Header set Content-type "application/javascript"
+    </FilesMatch>
+</IfModule>

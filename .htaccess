@@ -1,0 +1,11 @@
+<IfModule mod_rewrite.c>
+    
+    RewriteEngine on
+    
+    RewriteRule ^$ public/ [L]
+    RewriteRule ^(css|js|fonts|images|plugins)($|/) - [L]
+
+    RewriteRule (.*) public/$1 [L]
+
+</IfModule>
+
